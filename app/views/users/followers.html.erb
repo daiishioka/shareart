@@ -18,6 +18,7 @@
 		<%= render 'relationships/follow_button', user: @user %>
 	</aside>
 	<div class="col-xs-8">
-		<%= render 'tabs' %>
+	  <%= render 'tabs' %>
+    <%= render 'users', users: @followers %>
 	</div>
 </div>

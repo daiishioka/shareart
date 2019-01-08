@@ -1,5 +1,19 @@
 <% if logged_in? %>
-	<p><%= current_user.name %>のアトリエ</p>
+	<div class="row">
+		<aside class="col-md-4">
+			<%= current_user.name %>のアトリエ
+		</aside>
+		<%= form_for(@artpost) do |f| %>
+			<div class="form-group">
+				<%= f.label :artimage, '絵投稿' %>
+				<%= f.file_field :artimage, class: 'form-control' %>
+			</div>
+			<%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
+		<% end %>
+		<div class="col-xs-8">
+			<%= render 'artposts/artposts', artposts: @artposts %>
+		</div>
+	</div>
 <% else %>
 	<div class="center jumbotron">
 		<div class="text-center">

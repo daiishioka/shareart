@@ -1,0 +1,18 @@
+<ul class="media-list">
+	<% artposts.each do |artpost| %>
+		<li class="media">
+			<div class="media-left">
+				<img class="media-object img-rounded img-responsive" src="<%= artpost.user.image %>" width="150" alt="">
+			</div>
+			<div class="media-body">
+				<div>
+					<%= link_to artpost.user.name, user_path(artpost.user) %>さんの絵 <span class="text-muted">posted at <%= artpost.created_at %></span>
+				</div>
+				<div>
+					<p><%= artpost.artimage %></p>
+				</div>
+			</div>
+		</li>
+	<% end %>
+	<%= paginate artposts %>
+</ul>
