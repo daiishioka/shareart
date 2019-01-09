@@ -1,0 +1,22 @@
+<aside class="col-xs-4">
+  <div class="panel panel-default">
+	  <div class="panel-heading">
+	  	<h3 class="panel-title"><%= @user.name %>のアトリエ</h3>
+  	</div>
+  	<div class="panel-body">
+  		<% if @user.image.present? %>
+  		  <%= image_tag @user.image.url, class: "media-object img-rounded img-responsive" %>
+  		<% else %>
+  		  <%= image_tag "/icon.png" %>
+  		<% end %>
+  		<ul>
+  			<p>名前: <%= @user.name %></p>
+  			<p>instagram: <%= @user.instagram_url %></p>
+  			<p>twitter: <%= @user.twitter_url %></p>
+  			<p>facebook: <%= @user.facebook_url %></p>
+  			<p><%= link_to 'プロフィール編集', edit_user_path(@user) %></p>
+  		</ul>
+  	</div>
+  </div>
+		<%= render 'relationships/follow_button', user: @user %>
+</aside>

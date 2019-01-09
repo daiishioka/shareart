@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190108002105) do
+ActiveRecord::Schema.define(version: 20190108043515) do
 
   create_table "artposts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "artimage"
@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 20190108002105) do
     t.string   "password_digest"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.string   "instagram_id"
-    t.string   "twitter_id"
-    t.string   "facebook_id"
+    t.string   "instagram_url"
+    t.string   "twitter_url"
+    t.string   "facebook_url"
     t.text     "introduction",    limit: 65535
     t.string   "image"
   end

@@ -1,22 +1,5 @@
 <div class="row">
-	<aside class="col-xs-4">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h3 class="panel-title"><%= @user.name %>のアトリエ</h3>
-			</div>
-			<div class="panel-body">
-				<img class="media-object img-rounded img-responsive" src="<%= @user.image %>" width="150" alt="">
-				<ul>
-					<p>名前: <%= @user.name %></p>
-					<p>instagram: <%= @user.instagram_id %></p>
-					<p>twitter: <%= @user.twitter_id %></p>
-					<p>facebook: <%= @user.facebook_id %></p>
-					<p><%= link_to 'プロフィール編集', edit_user_path(@user) %></p>
-				</ul>
-			</div>
-		</div>
-		<%= render 'relationships/follow_button', user: @user %>
-	</aside>
+	<%= render 'profile' %>
 	<div class="col-xs-8">
 	  <%= render 'tabs' %>
     <%= render 'users', users: @followers %>
