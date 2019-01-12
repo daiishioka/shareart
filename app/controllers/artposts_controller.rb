@@ -3,7 +3,9 @@ class ArtpostsController < ApplicationController
   before_action :correct_user, only: [:destroy]
   
   def show
-    @posts = Post.all
+    @artpost = Artpost.find(params[:id])
+    @artpost_user = Artpost.find(params[:id]).user
+    @like_users = @artpost.like_users
   end
   
   def create

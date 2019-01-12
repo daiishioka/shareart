@@ -9,12 +9,17 @@
 					<%= link_to artpost.user.name, user_path(artpost.user) %>さんの絵 <span class="text-muted">posted at <%= artpost.created_at %></span>
 				</div>
 				<div>
-					<p><%= image_tag artpost.artimage.url if artpost.artimage.present? %></p>
+					<p><%= link_to (image_tag artpost.artimage.url if artpost.artimage.present?), artpost_path(artpost) %></p>
 				</div>
-				<div>
-					<% if current_user == artpost.user %>
-						<%= link_to "削除", artpost, method: :delete, data: { confirm: "本当によろしいですか？" }, class: 'btn btn-danger btn-xs' %>
-					<% end %>
+				<div class="btn-toolbar" roll="toolbar">
+					<div class="btn-group" roll="group">
+						<%= render 'favorites/favorite_button', artpost: artpost %>
+					</div>
+					<div class="btn-group" roll="group">
+							<% if current_user == artpost.user %>
+								<%= link_to "削除", artpost, method: :delete, data: { confirm: "本当によろしいですか？" }, class: 'btn btn-danger btn-xs' %>
+							<% end %>
+					</div>
 				</div>
 			</div>
 		</li>

@@ -1,0 +1,35 @@
+<div class="row">  
+  <div class="col-md-5 col-sm-6 col-xs-12">
+    <div class="artpost">
+      <div class="panel panel-default">
+        <div class="panel-heading text-center">
+          <%= @artpost_user.name %>さんの絵
+        </div>
+        <div class="panel-body">
+          <%= image_tag @artpost.artimage.url %>
+          <div class="buttons text-center">
+            <%= render 'favorites/favorite_button', artpost: @artpost %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 col-sm-6 col-xs-12">
+    <div class="artpost-users">
+      <div class="panel panel-default">
+        <div class="panel-heading text-center">
+          いいねしたユーザ
+        </div>
+        <div class="panel-body">
+          <% @like_users.each do |user| %>
+            <%= link_to user.name, user_path(user) %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="buttons">
+      <button>描いた人にDMを送る</button> 
+    </div>
+  </div>
+</div>
