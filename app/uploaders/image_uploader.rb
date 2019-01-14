@@ -13,6 +13,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
   
+  CarrierWave.configure do |config|
+    config.cache_dir = "#{Rails.root}/tmp/uploads"
+  end
+  
   def cache_dir
     "#{Rails.root}/tmp/uploads"
   end
