@@ -6,7 +6,7 @@
           <%= @artpost_user.name %>さんの絵
         </div>
         <div class="panel-body">
-          <%= image_tag @artpost.artimage.thumb.url %>
+          <%= image_tag @artpost.artimage.thumb.url, class: "img-responsive center-block" %>
           <div class="buttons text-center">
             <p><%= render 'favorites/favorite_button', artpost: @artpost %></p>
           </div>
