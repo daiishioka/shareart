@@ -4,7 +4,11 @@ class ArtimageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  if Rails.env.production?
+    include Cloudinary::CarrierWave
+  else
+    storage :file
+  end
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -13,13 +17,6 @@ class ArtimageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
   
-  CarrierWave.configure do |config|
-    config.cache_dir = "#{Rails.root}/tmp/uploads"
-  end
-  
-  def cache_dir
-    "#{Rails.root}/tmp/uploads"
-  end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
