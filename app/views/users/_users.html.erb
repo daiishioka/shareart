@@ -1,21 +1,31 @@
 <% if users.any? %>
-	<ul class="media-list">
+<div class="row">
+	<div class="media-list">
 		<% users.each do |user| %>
-			<li class="media">
-				<div class="media-left">
-					###
-				</div>
-				<div class="media-body">
-					<div>
-						<%= link_to user.name, user_path(user) %>
+		<div class="col-sm-6">
+			<div class="panel panel-default">
+				<div class="media">
+					<div class="media-left">
+						<% if user.image.present? %>　　
+	  		  		<%= image_tag user.image.thumb.url, class: "media-object img-rounded img-responsive" %>
+	  				<% else %>
+	  		 		  <%= image_tag "/icon100×100.png" %>
+	  				<% end %>
 					</div>
-					<div>
-						自己紹介
-						<p><%= user.introduction %></p>
+					<div class="media-body">
+						<div>
+							<%= link_to user.name, user_path(user) %>
+						</div>
+						<div>
+							自己紹介
+							<p><%= user.introduction %></p>
+						</div>
 					</div>
 				</div>
-			</li>
-		<% end %>
-	</ul>
-	<%= paginate users %>
+			</div>
+		</div>
+	</div>
+	<% end %>
+</div>
+<%= paginate users %>
 <% end %>

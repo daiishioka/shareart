@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action 'require_user_logged_in', only: [:index, :show, :artposts, :followings, :followers, :likes]
+  before_action 'require_user_logged_in', only: [:index, :show, :artposts, :followings, :followers, :likes, :update]
   
   def index
     @users = User.all.page(params[:page])
@@ -41,8 +41,10 @@ class UsersController < ApplicationController
         flash[:success] = 'プロフィールを編集しました'
         redirect_to @user
       else
-        flash.now[:danger] = 'プロフィールの編集に失敗しました'
-        render :edit
+        respond_to do |format|
+          flash.now[:danger] = 'プロフィールの編集に失敗しました'
+          render :edit
+        end
       end
   end
   
