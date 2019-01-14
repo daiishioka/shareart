@@ -78,9 +78,81 @@ footer small {
 }
 
 
- 
 #img_field:hover {
   background-color: #EDBC6C;
   transition: 0.3s ease-out;
   opacity: 0.9;
+}
+
+/* User詳細 */
+.panel .panel-body .profile-image {
+  margin: 0 auto 10px;
+  padding: 0;
+  display: table;
+}
+.panel .panel-body p{
+  font-size: 20px;
+}
+.panel .panel-body .status ul {
+  margin: 0 auto 10px;
+  padding: 0;
+  display: table;
+}
+.panel .panel-body .status ul li {
+  width: 120px;
+  padding: 5px 0;
+  border-right: 1px solid #ddd;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  color: #777;
+}
+.panel .panel-body .status ul li:last-child {
+  border: none;
+}
+.panel .panel-body .status ul li .status-label {
+  font-size: 12px;
+}
+.panel .panel-body .status ul li .status-value {
+  font-size: 18px;
+}
+.panel .panel-body ul p{
+  font-size: 12px;
+}
+
+/*User一覧 */
+.row .media-list .panel .media .media-left{
+  padding: 20px 10px 10px 20px;
+}
+.row .media-list .panel .media .media-body{
+  padding-left: 30px;
+}
+.row .media-list .panel .media .media-body ul {
+  margin: 0 auto 10px;
+  padding: 0;
+  display: table;
+}
+.row .media-list .panel .media .media-body ul li {
+  width: 100px;
+  padding: 5px 0;
+  border-right: 1px solid #ddd;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  color: #777;
+}
+.row .media-list .panel .media .media-body ul li:last-child {
+  border: none;
+}
+.row .media-list .panel .media .media-body ul li .status-label {
+  font-size: 12px;
+}
+.row .media-list .panel .media .media-body ul li .status-value {
+  font-size: 18px;
+}
+.row .media-list .panel .media .media-body p{
+  font-size: 20px;
+}
+.row .media-list .panel .media .media-body .introduction p{
+  font-size: 12px;
 }

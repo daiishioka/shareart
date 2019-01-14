@@ -48,4 +48,12 @@ class User < ApplicationRecord
 		self.likes.include?(artpost)
 	end
 	
+	def followings_count
+		self.followings.count
+	end
+	
+	def followers_count
+		self.followers.count
+	end
+	
 end

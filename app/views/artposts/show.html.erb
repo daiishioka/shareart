@@ -6,9 +6,9 @@
           <%= @artpost_user.name %>さんの絵
         </div>
         <div class="panel-body">
-          <%= image_tag @artpost.artimage.url %>
+          <%= image_tag @artpost.artimage.thumb.url %>
           <div class="buttons text-center">
-            <%= render 'favorites/favorite_button', artpost: @artpost %>
+            <p><%= render 'favorites/favorite_button', artpost: @artpost %></p>
           </div>
         </div>
       </div>
@@ -27,9 +27,6 @@
           <% end %>
         </div>
       </div>
-    </div>
-    <div class="buttons">
-      <button>描いた人にDMを送る</button> 
     </div>
   </div>
 </div>

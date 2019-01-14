@@ -6,17 +6,33 @@
 			<div class="panel panel-default">
 				<div class="media">
 					<div class="media-left">
-						<% if user.image.present? %>　　
-	  		  		<%= image_tag user.image.thumb.url, class: "media-object img-rounded img-responsive" %>
+						<% if user.image.present? %>
+	  		  		<%= image_tag user.image.thumb100.url, class: "media-object img-circle img-rounded" %>
 	  				<% else %>
-	  		 		  <%= image_tag "/icon100×100.png" %>
+	  				 <div class="icon">
+	  		 		   <%= image_tag "/icon100×100.png" %>
+	  		 		 </div>
 	  				<% end %>
 					</div>
 					<div class="media-body">
-						<div>
-							<%= link_to user.name, user_path(user) %>
-						</div>
-						<div>
+						<p><%= link_to user.name, user_path(user) %></p>
+			  		<div class="status text-center">
+			  		  <ul>
+			  		    <li>
+			  		      <div class="status-label">フォロー</div>
+							    <div id="following_count" class="status-value">
+								    <%= link_to user.followings_count, followings_user_path(user) %>
+							    </div>
+			  		    </li>
+			  		    <li>
+			  		      <div class="status-label">フォロワー</div>
+							    <div id="follower_count" class="status-value">
+								    <%= link_to user.followers_count, followers_user_path(user) %>
+							    </div>
+			  		    </li>
+			  		  </ul>
+			  		</div>
+						<div class="introduction">
 							自己紹介
 							<p><%= user.introduction %></p>
 						</div>
@@ -24,8 +40,8 @@
 				</div>
 			</div>
 		</div>
+		<% end %>
 	</div>
-	<% end %>
 </div>
 <%= paginate users %>
 <% end %>

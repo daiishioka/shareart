@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action 'require_user_logged_in', only: [:index, :show, :artposts, :followings, :followers, :likes, :update]
+  before_action :require_user_logged_in, only: [:index, :show, :artposts, :followings, :followers, :likes]
+  before_action :correct_user, only: [:edit, :update]
+  
   
   def index
     @users = User.all.page(params[:page])
@@ -54,6 +56,11 @@ class UsersController < ApplicationController
     counts(@user)
   end
   
+  def followings_count
+    @user= User.find(params[:id])
+    @count_followings = @user.followings.count
+  end
+  
   def followers
     @user = User.find(params[:id])
     @followers = @user.followers.page(params[:page])
@@ -73,4 +80,10 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :instagram_url, :twitter_url, :facebook_url, :introduction, :image)
   end
 
+  def correct_user
+    @user = User.find(params[:id])
+    unless @user == current_user
+      redirect_to root_url
+    end
+  end
 end
