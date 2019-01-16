@@ -43,10 +43,8 @@ class UsersController < ApplicationController
         flash[:success] = 'プロフィールを編集しました'
         redirect_to @user
       else
-        respond_to do |format|
-          flash.now[:danger] = 'プロフィールの編集に失敗しました'
-          render :edit
-        end
+        flash.now[:danger] = 'プロフィールの編集に失敗しました'
+        render :edit
       end
   end
   
