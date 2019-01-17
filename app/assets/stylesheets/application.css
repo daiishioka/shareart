@@ -85,21 +85,30 @@ footer small {
 }
 
 /* User詳細 */
-.panel .panel-body .profile-image {
+
+
+.wrapper #sidebar .card{
+  margin-top: 30px;
+}
+
+.wrapper #sidebar .card .card-body .card-title{
+  display: block;
+  text-align: center;
+}
+.wrapper #sidebar .card .card-body .artist-name{
+  color: #696969;
+}
+.wrapper #sidebar .card .card-body h5{
+  color: #c0c0c0;
+}
+
+.wrapper #sidebar .card .card-body .card-text ul {
   margin: 0 auto 10px;
   padding: 0;
   display: table;
 }
-.panel .panel-body p{
-  font-size: 20px;
-}
-.panel .panel-body .status ul {
-  margin: 0 auto 10px;
-  padding: 0;
-  display: table;
-}
-.panel .panel-body .status ul li {
-  width: 120px;
+.wrapper #sidebar .card .card-body .card-text ul li {
+  width: 100px;
   padding: 5px 0;
   border-right: 1px solid #ddd;
   display: table-cell;
@@ -107,17 +116,44 @@ footer small {
   text-align: center;
   color: #777;
 }
-.panel .panel-body .status ul li:last-child {
+.wrapper #sidebar .card .card-body .card-text ul li:last-child {
   border: none;
 }
-.panel .panel-body .status ul li .status-label {
-  font-size: 12px;
+p.introduction {
+  /* 文の行数を2行に保ち、最後に ... を追加するスタイル */
+  max-width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
-.panel .panel-body .status ul li .status-value {
-  font-size: 18px;
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
 }
-.panel .panel-body ul p{
-  font-size: 12px;
+
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+}
+
+#sidebar.active {
+  margin-left: -550px;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+}
+
+#sidebar {
+    /* don't forget to add all the previously mentioned styles here too */
+    transition: all 0.5s;
 }
 
 /*User一覧 */
@@ -160,4 +196,5 @@ p.introduction {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
 
