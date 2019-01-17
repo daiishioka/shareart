@@ -121,18 +121,27 @@ footer small {
 }
 
 /*User一覧 */
-.row .media-list .panel .media .media-left{
-  padding: 20px 10px 10px 20px;
+.row .card-deck .card{
+  margin-top: 30px;
 }
-.row .media-list .panel .media .media-body{
-  padding-left: 30px;
+
+.row .card-deck .card .card-body .card-title{
+  display: block;
+  text-align: center;
 }
-.row .media-list .panel .media .media-body ul {
+.row .card-deck .card .card-body .artist-name{
+  color: #696969;
+}
+.row .card-deck .card .card-body h5{
+  color: #c0c0c0;
+}
+
+.row .card-deck .card .card-body .card-text ul {
   margin: 0 auto 10px;
   padding: 0;
   display: table;
 }
-.row .media-list .panel .media .media-body ul li {
+.row .card-deck .card .card-body .card-text ul li {
   width: 100px;
   padding: 5px 0;
   border-right: 1px solid #ddd;
@@ -141,18 +150,14 @@ footer small {
   text-align: center;
   color: #777;
 }
-.row .media-list .panel .media .media-body ul li:last-child {
+.row .card-deck .card .card-body .card-text ul li:last-child {
   border: none;
 }
-.row .media-list .panel .media .media-body ul li .status-label {
-  font-size: 12px;
+p.introduction {
+  /* 文の行数を2行に保ち、最後に ... を追加するスタイル */
+  max-width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
-.row .media-list .panel .media .media-body ul li .status-value {
-  font-size: 18px;
-}
-.row .media-list .panel .media .media-body p{
-  font-size: 20px;
-}
-.row .media-list .panel .media .media-body .introduction p{
-  font-size: 12px;
-}
+
