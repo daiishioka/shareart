@@ -1,6 +1,6 @@
 <header>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="/">ArtShare</a>
+		<a class="navbar-brand" href="/"><i class="fas fa-paint-brush"></i>ArtShare</a>
 			<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="Navbar" aria-expanded="false" aria-label="ナビゲーションの切替">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -14,7 +14,6 @@
 								</li>
 							<%= link_to 'My アトリエ', user_path(current_user), class: 'nav-link' %>
 							</ul>
-							
 						</li>
 						<li class="nav-item"><%= link_to 'Users', users_path, class: 'nav-link' %></li>
 						<li class="nav-item"><%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %></li>
