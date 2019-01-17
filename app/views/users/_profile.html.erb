@@ -1,42 +1,56 @@
-<aside class="col-xs-4">
-  <div class="panel panel-default">
-	  <div class="panel-heading">
-	  	<h3 class="panel-title"><%= @user.name %>のアトリエ</h3>
-  	</div>
-  	<div class="panel-body">
-  	  <div class="profile-image">
-    		<% if @user.image.present? %>
-    		  <%= image_tag @user.image.thumb100.url, class: "media-object img-circle img-responsive" %>
-    		<% else %>
-    		  <%= image_tag "/icon.png" %>
-    		<% end %>
-  		</div>
-  		<div class="status text-center">
-  		  <p><%= @user.name %></p>
-  		  <ul>
-  		    <li>
-  		      <div class="status-label">フォロー</div>
-				    <div id="following_count" class="status-value">
-					    <%= @count_followings %>
-				    </div>
-  		    </li>
-  		    <li>
-  		      <div class="status-label">フォロワー</div>
-				    <div id="follower_count" class="status-value">
-					    <%= @count_followers %>
-				    </div>
-  		    </li>
-  		  </ul>
-  		</div>
-  		<ul>
-  			<p>instagram: <%= @user.instagram_url %></p>
-  			<p>twitter: <%= @user.twitter_url %></p>
-  			<p>facebook: <%= @user.facebook_url %></p>
-    		<% if current_user == @user %>
-    			<p><%= link_to 'プロフィール編集', edit_user_path(@user) %></p>
-    		<% end %>
-  		</ul>
-  	</div>
-  </div>
+<div class="wrapper">
+	<nav id="sidebar">
+		<div class="card">
+			<% if @user.image.present? %>
+				<%= image_tag @user.image.thumb100.url, class: "card-img-top" %>
+			<% else %>
+			 	<%= image_tag "/icon100×100.png", class: "card-img-top" %>
+			<% end %>
+			<div class="card-body">
+				<div class="card-title">
+					<div class="artist-name">
+						<h5><%= @user.name %> 画伯</h5>
+					</div>
+				</div>
+				<div class="card-text">
+				  <ul>
+				    <li>
+				      <div class="card-text-name">フォロー</div>
+					    <div id="following_count">
+						    <%= link_to @user.followings_count, followings_user_path(@user) %>
+					    </div>
+				    </li>
+				    <li>
+				      <div class="card-text-name">フォロワー</div>
+					    <div id="follower_count">
+						    <%= link_to @user.followers_count, followers_user_path(@user) %>
+					    </div>
+				    </li>
+				  </ul>
+  					<i class="btn btn-social-icon btn-twitter"><span class="fab fa-twitter fa-fw"></span></i>
+				  	<i class="btn btn-social-icon btn-facebook"><span class="fab fa-facebook-f fa-fw"></span></i>
+					  <i class="btn btn-social-icon btn-instagram"><span class="fab fa-instagram fa-fw pink-text"></span></i>
+		    		<% if current_user == @user %>
+		    			<p><%= link_to 'プロフィール編集', edit_user_path(@user) %></p>
+		    		<% end %>
+		    		<div class="introduction">
+		    		自己紹介
+						<p><%= @user.introduction %></p>
+						</div>
+			  </div>
+			</div>
+		</div>
 		<%= render 'relationships/follow_button', user: @user %>
-</aside>
+	</nav>
+	
+	<script>
+		$(document).ready(function () {
+
+	    $('#sidebarCollapse').on('click', function () {
+	        $('#sidebar').toggleClass('active');
+	    });
+
+		});
+	</script>
+</div>
+
