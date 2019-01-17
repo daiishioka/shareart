@@ -1,42 +1,40 @@
-<% if users.any? %>
 
-		<div class="card-deck">
-			<% users.each do |user| %>
-				<div class="card col-md-3 ml-md-auto">
-					<div class="card-img-top">
-						<% if user.image.present? %>
-				  		<%= image_tag user.image.thumb100.url, class: "card-img-top" %>
-						<% else %>
-						 <div class="icon">
-				 		   <%= image_tag "/icon100×100.png" %>
-				 		 </div>
-						<% end %>
-					</div>
-					<div class="card-body">
-						<p><%= link_to user.name, user_path(user), class: "card-title" %></p>
-			  		<div class="card-text">
-			  		  <ul>
-			  		    <li>
-			  		      <div class="card-text">フォロー</div>
-							    <div id="following_count">
-								    <%= link_to user.followings_count, followings_user_path(user), class: "card-text" %>
-							    </div>
-			  		    </li>
-			  		    <li>
-			  		      <div class="card-text">フォロワー</div>
-							    <div id="follower_count">
-								    <%= link_to user.followers_count, followers_user_path(user), class:"card-text" %>
-							    </div>
-			  		    </li>
-			  		  </ul>
-			  		</div>
-						<div class="card-text">
-							自己紹介
-							<p><%= user.introduction %></p>
-						</div>
-					</div>
-				</div>
+<% if users.any? %>
+<div class="row">
+	<% users.each do |user| %>
+	<div class="card-deck col-md-3">
+		<div class="card">
+			<% if user.image.present? %>
+	  		<%= image_tag user.image.thumb100.url, class: "card-img-top" %>
+			<% else %>
+	 		  <%= image_tag "/icon100×100.png", class: "card-img-top" %>
 			<% end %>
+			<div class="card-body">
+				<div class="card-title">
+					<h5><%= link_to user.name, user_path(user), class: "artist-name" %> 画伯</h5>
+				</div>
+	  		<div class="card-text">
+	  		  <ul>
+	  		    <li>
+	  		      <div class="card-text-name">フォロー</div>
+					    <div id="following_count">
+						    <%= link_to user.followings_count, followings_user_path(user) %>
+					    </div>
+	  		    </li>
+	  		    <li>
+	  		      <div class="card-text-name">フォロワー</div>
+					    <div id="follower_count">
+						    <%= link_to user.followers_count, followers_user_path(user) %>
+					    </div>
+	  		    </li>
+	  		  </ul>
+	  		</div>
+					自己紹介
+					<p class="introduction"><%= user.introduction %></p>
+			</div>
 		</div>
+	</div>
+	<% end %>
+</div>
 	<%= paginate users %>
 <% end %>
