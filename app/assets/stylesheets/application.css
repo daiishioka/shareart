@@ -208,3 +208,10 @@ p.introduction {
 }
 
 
+/* User編集 */
+.row .card {
+  display: block;
+  text-align: center;
+}
+
+
