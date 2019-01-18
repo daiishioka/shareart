@@ -215,3 +215,7 @@ p.introduction {
 }
 
 
+/* 新規登録 */
+.row .signup-form{
+  margin-top: 200px;
+}
