@@ -1,100 +1,34 @@
-<div class="text-center">
-	<h1>新規登録</h1>
-</div>
-
 <div class="row">
-	<div class="col-md-6 col-md-offset-3">
-		
+	<div class="card text-center p-5 col-lg-5">
+    <p>新規登録</p>
 		<%= form_for(@user) do |f| %>
 			<%= render 'layouts/error_messages', model: f.object %>
-		
-			<div class="form-group">
-				<%= f.label :name, 'name' %>
-				<%= f.text_field :name, class: 'form-control' %>
-			</div>
-			
-			<div class="form-group">
-				<%= f.label :email, 'email' %>
-				<%= f.email_field :email, class: 'form-control' %>
-			</div>
-			
-			<div class="form-group">
-				<%= f.label :password, 'password' %>
-				<%= f.password_field :password, class: 'form-control' %>
-			</div>
-			
-			<div class="form-group">
-				<%= f.label :password_confirmation, 'password(確認)' %>
-				<%= f.password_field :password_confirmation, class: 'form-control' %>
-			</div>
-			
-			<%= f.submit '登録', class: 'btn btn-primary btn-block' %>
+	    <div class="col">
+				<div class="form-group">
+					<%= f.label :name, 'name' %>
+					<%= f.text_field :name, class: 'form-control' %>
+				</div>
+	    </div>
+	    <div class="col">
+				<div class="form-group">
+					<%= f.label :email, 'email' %>
+					<%= f.email_field :email, class: 'form-control' %>
+				</div>
+	    </div>
+	    <div class="col">
+				<div class="form-group">
+					<%= f.label :password, 'password' %>
+					<%= f.password_field :password, class: 'form-control' %>
+				</div>
+	    </div>
+	    <div class="col">
+				<div class="form-group">
+					<%= f.label :password_confirmation, 'password(確認)' %>
+					<%= f.password_field :password_confirmation, class: 'form-control' %>
+				</div>
+	    </div>
+
+			<%= f.submit '登録', class: 'btn btn-info ' %>
 		<% end %>
 	</div>
 </div>
-
-<!-- Default form register -->
-<form class="text-center border border-light p-5">
-
-    <p class="h4 mb-4">Sign up</p>
-
-    <div class="form-row mb-4">
-        <div class="col">
-            <!-- First name -->
-            <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
-        </div>
-        <div class="col">
-            <!-- Last name -->
-            <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
-        </div>
-    </div>
-
-    <!-- E-mail -->
-    <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
-
-    <!-- Password -->
-    <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
-    <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-        At least 8 characters and 1 digit
-    </small>
-
-    <!-- Phone number -->
-    <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
-    <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
-        Optional - for two step authentication
-    </small>
-
-    <!-- Newsletter -->
-    <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="defaultRegisterFormNewsletter">
-        <label class="custom-control-label" for="defaultRegisterFormNewsletter">Subscribe to our newsletter</label>
-    </div>
-
-    <!-- Sign up button -->
-    <button class="btn btn-info my-4 btn-block" type="submit">Sign in</button>
-
-    <!-- Social register -->
-    <p>or sign up with:</p>
-
-    <a type="button" class="light-blue-text mx-2">
-        <i class="fab fa-facebook-f"></i>
-    </a>
-    <a type="button" class="light-blue-text mx-2">
-        <i class="fab fa-twitter"></i>
-    </a>
-    <a type="button" class="light-blue-text mx-2">
-        <i class="fab fa-linkedin-in"></i>
-    </a>
-    <a type="button" class="light-blue-text mx-2">
-        <i class="fab fa-github"></i>
-    </a>
-
-    <hr>
-
-    <!-- Terms of service -->
-    <p>By clicking
-        <em>Sign up</em> you agree to our
-        <a href="" target="_blank">terms of service</a>
-
-</form>
-<!-- Default form register -->
