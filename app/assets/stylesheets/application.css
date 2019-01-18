@@ -119,6 +119,16 @@ footer small {
 .wrapper #sidebar .card .card-body .card-text ul li:last-child {
   border: none;
 }
+
+.wrapper #sidebar .card .card-body .card-text .sns-icon {
+  text-align: center;
+}
+
+.wrapper #sidebar .card .card-body .card-text .edit-button {
+  margin-top: 20px;
+  text-align: center;
+}
+
 p.introduction {
   /* 文の行数を2行に保ち、最後に ... を追加するスタイル */
   max-width: 200px;
