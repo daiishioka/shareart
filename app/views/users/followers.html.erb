@@ -1,7 +1,10 @@
 <div class="row">
-	<%= render 'profile' %>
-	<div class="col-xs-8">
-	  <%= render 'tabs' %>
-    <%= render 'users', users: @followers %>
+	<div class="col-md-3">
+		<%= render 'profile' %>
+	</div>
+	<div class="col-md-9">
+		  <%= render 'tabs' %>
+	    <%= render 'users', users: @followers %>
+    </div>
 	</div>
 </div>

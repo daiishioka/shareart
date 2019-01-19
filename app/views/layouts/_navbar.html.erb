@@ -5,7 +5,7 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<% if logged_in? %>
-				<% if current_page?(root_path) || @user && current_page?(user_path(@user)) %>
+				<% if current_page?(root_path) || @user && current_page?(user_path(@user)) || @user && current_page?(followings_user_path(@user)) || @user && current_page?(followers_user_path(@user)) || @user && current_page?(likes_user_path(@user)) %>
 					<div id="content">
 			      <div class="container-fluid">
 			      	<button type="button" id="sidebarCollapse" class="btn btn-info">
