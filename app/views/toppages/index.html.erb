@@ -1,8 +1,79 @@
 <% if logged_in? %>
-	<div class="row">
-		<aside class="col-md-4">
-			<%= current_user.name %>のアトリエ
-		</aside>
+<div class="row">
+	<div class="wrapper col-md-4">
+	<nav id="sidebar">
+		<div class="card">
+			<% if current_user.image.present? %>
+				<%= image_tag current_user.image.thumb100.url, class: "card-img-top" %>
+			<% else %>
+			 	<%= image_tag "/icon100×100.png", class: "card-img-top" %>
+			<% end %>
+			<div class="card-body">
+				<div class="card-title">
+					<div class="artist-name">
+						<h5><%= current_user.name %> 画伯</h5>
+					</div>
+				</div>
+				<div class="card-text">
+				  <ul>
+				    <li>
+				      <div class="card-text-name">フォロー</div>
+					    <div id="following_count">
+						    <%= link_to current_user.followings_count, followings_user_path(current_user) %>
+					    </div>
+				    </li>
+				    <li>
+				      <div class="card-text-name">フォロワー</div>
+					    <div id="follower_count">
+						    <%= link_to current_user.followers_count, followers_user_path(current_user) %>
+					    </div>
+				    </li>
+				  </ul>
+				  	<div class="sns-icon">
+				  		<% if current_user.twitter_url.present? %>
+					  		<%= link_to current_user.twitter_url, target: :_blank do %>
+									<i class="btn btn-social-icon btn-twitter rounded-circle p-0"><span class="fab fa-twitter"></span></i>
+								<% end %>
+							<% end %>
+							
+							<% if current_user.facebook_url.present? %>
+								<%= link_to current_user.facebook_url, target: :_blank do %>
+									<i class="btn btn-social-icon btn-facebook rounded-circle p-0"><span class="fab fa-facebook-f"></span></i>
+								<% end %>
+							<% end %>
+							
+							<% if current_user.instagram_url.present? %>
+								<%= link_to current_user.instagram_url, target: :_blank do %>
+									<i class="btn btn-social-icon btn-instagram rounded-circle p-0"><span class="fab fa-instagram"></span></i>
+								<% end %>
+							<% end %>
+						</div>
+						<div class="edit-button">
+			    		<% if current_user == current_user %>
+			    			<p><%= link_to 'プロフィール編集', edit_user_path(current_user), class: "btn btn-light rounded-pill" %></p>
+			    		<% end %>
+		    		</div>
+		    		<div class="introduction">
+		    		自己紹介
+						<p><%= current_user.introduction %></p>
+						</div>
+			  </div>
+			</div>
+		</div>
+		<%= render 'relationships/follow_button', user: current_user %>
+	</nav>
+	
+	<script>
+		$(document).ready(function () {
+
+	    $('#sidebarCollapse').on('click', function () {
+	        $('#sidebar').toggleClass('active');
+	    });
+
+		});
+	</script>
+</div>
+	<div class="col-md-8">
 		<%= form_for(@artpost) do |f| %>
 			<div class="form-group">
 				<%= f.label :artimage, '絵投稿' %>
@@ -10,7 +81,7 @@
 			</div>
 			<%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
 		<% end %>
-		<div class="col-xs-8">
+		<div>
 			<%= render 'artposts/artposts', artposts: @artposts %>
 		</div>
 	</div>
@@ -22,3 +93,4 @@
 		</div>
 	</div>
 <% end %>
+</div>
