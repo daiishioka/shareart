@@ -216,6 +216,11 @@ p.introduction {
 
 
 /* 新規登録 */
-.row .signup-form{
-  margin-top: 200px;
+.signup-form{
+  padding: 100px;
+}
+
+/* ログイン */
+.signin-form{
+  padding: 100px;
 }
