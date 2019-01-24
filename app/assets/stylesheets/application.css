@@ -224,3 +224,12 @@ p.introduction {
 .signin-form{
   padding: 100px;
 }
+
+/* Artpost 詳細 */
+.row .artpost{
+  padding: 100px;
+}
+
+.row .artpost-users{
+  padding: 100px;
+}
