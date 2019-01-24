@@ -59,6 +59,10 @@ gem 'cloudinary'
 
 gem 'bootstrap', '~> 4.2.1'
 
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'dotenv-rails' 
+
 group :production do
   gem 'pg', '0.21.0'
 end

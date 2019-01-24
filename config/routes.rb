@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'toppages#index'
+  get '/auth/:provider/callback', to: 'sessions#create'
   
   get 'signup', to: 'users#new'
   post 'signup', to: 'users#create'
