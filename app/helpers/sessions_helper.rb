@@ -6,4 +6,9 @@ module SessionsHelper
 	def logged_in?
 		!!current_user
 	end
+	
+	def authenticate
+		return if logged_in?
+		redirect_to root_path, alert: "ログインして下さい"
+	end
 end
